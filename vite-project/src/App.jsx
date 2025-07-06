@@ -4,13 +4,14 @@ import QuoteViewer from "./components/QuoteViewer"
 import UserList from "./components/Userlist"
 import Auth from "./components/Auth"
 import Complex from "./components/Complex"
+import Chakra from "./components/Chakra"
 
 function App() {
  
 
   return (
    <>
-<Complex/>
+<Chakra/>
    </>
   )
 }
