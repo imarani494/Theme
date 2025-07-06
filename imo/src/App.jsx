@@ -1,26 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { UserProvider } from "./UserContext";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Profile from "./pages/Profile";
-import Settings from "./pages/Settings";
+import MovieDetails from "./pages/MovieDetails";
+import Moive from "./components/Moive";
 
 const App = () => {
   return (
-    <UserProvider>
-      <Router>
-        <nav style={{ padding: "10px", background: "#ddd" }}>
-          <Link to="/" style={{ marginRight: "10px" }}>Home</Link>
-          <Link to="/profile" style={{ marginRight: "10px" }}>Profile</Link>
-          <Link to="/settings">Settings</Link>
-        </nav>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/settings" element={<Settings />} />
-        </Routes>
-      </Router>
-    </UserProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Moive />} />
+        <Route path="/movie/:id" element={<MovieDetails />} />
+      </Routes>
+    </Router>
   );
 };
 
