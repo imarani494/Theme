@@ -1,16 +1,26 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { UserProvider } from "./UserContext";
 import Home from "./pages/Home";
-import ProductDetail from "./pages/ProductDetail";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
-      </Routes>
-    </Router>
+    <UserProvider>
+      <Router>
+        <nav style={{ padding: "10px", background: "#ddd" }}>
+          <Link to="/" style={{ marginRight: "10px" }}>Home</Link>
+          <Link to="/profile" style={{ marginRight: "10px" }}>Profile</Link>
+          <Link to="/settings">Settings</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </Router>
+    </UserProvider>
   );
 };
 
